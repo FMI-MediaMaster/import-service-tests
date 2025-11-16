@@ -1,3 +1,6 @@
+# import-service-tests
+Tests for external services which import user libraries
+
 > [!IMPORTANT]
 > If you are using npm packages from GitHub, you also need to add the <code>.npmrc</code>
 > file to your project so that all requests to install packages will go through GitHub Packages.

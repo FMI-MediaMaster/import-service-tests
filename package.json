@@ -1,13 +1,13 @@
 {
-  "name": "<NAME>",
-  "description": "Description for package <NAME>",
+  "name": "import-service-tests",
+  "description": "Tests for external services which import user libraries",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "packageManager": "pnpm@10.18.3",
   "type": "module",
   "repository": {
-    "url": "<REPO_URL>"
+    "url": "https://github.com/Andrei137/import-service-tests.git"
   },
   "keywords": [],
   "scripts": {
@@ -18,8 +18,10 @@
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@types/node": "^24.7.2",
+    "@types/supertest": "^6.0.3",
     "eslint": "^9.37.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.1"
+    "typescript-eslint": "^8.46.1",
+    "vitest": "^4.0.10"
   }
 }
