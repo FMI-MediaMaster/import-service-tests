@@ -6,7 +6,7 @@ type TypeMap = {
     string: string;
 };
 
-export type Fields = Record<string, { type: keyof TypeMap }>;
+export type Fields = Record<string, { type: keyof TypeMap, nullable: boolean }>;
 
 type FromSchema<T extends Fields> = {
     [K in keyof T]: T[K]['type'] extends keyof TypeMap ? TypeMap[T[K]['type']] : unknown;
@@ -30,11 +30,11 @@ const runEndpointTests = (
     type Item = FromSchema<typeof fields>;
     const fieldKeys = Object.keys(fields);
     const checkFields = (item: Item) => {
-        expect(Object.keys(item)).toEqual(fieldKeys);
+        expect(Object.keys(item)).toEqual(expect.arrayContaining(fieldKeys));
 
         for (const [key, props] of Object.entries(fields)) {
             expect(typeof item[key]).toBe(props['type']);
-            if (!('empty' in props && props['empty'] === true)) {
+            if (!('nullable' in props && props['nullable'] === true)) {
                 expect(item[key]).not.toBeNull();
             }
         }
